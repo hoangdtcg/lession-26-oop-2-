@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thế giới di động</title>
+    <script src="Mobile.js"></script>
+    <script src="Store.js"></script>
+    <script src="function.js"></script>
+
+</head>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        float: left;
+        margin-left: 15px;
+    }
+    
+    .price {
+        color: grey;
+        font-size: 22px;
+    }
+    
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    .card button:hover {
+        opacity: 0.7;
+    }
+</style>
+
+<body>
+    <div id="product-list">
+
+    </div>
+
+    <table border="1px">
+        <thead>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Giá cũ</th>
+            <th colspan="2">Action</th>
+        </thead>
+        <tbody id="product-table"></tbody>
+    </table>
+    <script>
+        let tgdd = new Store();
+        tgdd.init();
+
+        document.getElementById('product-list').innerHTML = tgdd.getAllMobile();
+        document.getElementById('product-table').innerHTML = tgdd.getAllMobileTable();
+    </script>
+</body>
+
+</html>

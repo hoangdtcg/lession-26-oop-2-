@@ -1,0 +1,23 @@
+Điện thoại
+    - Tên
+    - Hình ảnh
+    - Mô tả
+    - Giá
+    - Giá cũ
+    + lấy ra html của mobile
+
+Cửa hàng
+    - Mảng các điện thoại
+
+    + lấy ra html của tất cả mobile
+
+
+Game Đối Kháng
+Class VoSi thì có những thuộc tính và phương thức nào
+
+Fighter
+    - name
+    - damage - dmg
+    - hitpoint - hp
+    + attack - tấn công
+    + takeHit - nhận đòn
