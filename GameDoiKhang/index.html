@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Đối Kháng</title>
+    <script src="Fighter.js"></script>
+</head>
+
+<body>
+    <button onclick="createFighter()">Battle</button>
+    <div id="player1">
+        <p id="player1-name">Name</p>
+        <p id="player1-hp">HP</p>
+        <button onclick="attack(player1,player2)">Player 1 Attack</button>
+    </div>
+    <div id="player2">
+        <p id="player2-name">Name</p>
+        <p id="player2-hp">HP</p>
+        <button onclick="attack(player2,player1)">Player 2 Attack</button>
+
+    </div>
+
+    <script>
+        let player1;
+        let player2;
+        let turn = 1;
+        let run;
+
+        function createFighter() {
+            p1 = prompt("Nhập tên võ sĩ 1");
+            p2 = prompt("Nhập tên võ sĩ 2");
+            player1 = new Fighter(p1);
+            player2 = new Fighter(p2);
+            displayAll();
+            run = setInterval(autoAttack, 500);
+        }
+
+        function displayAll() {
+            document.getElementById('player1-name').innerHTML = player1.name;
+            document.getElementById('player1-hp').innerHTML = player1.hp;
+            document.getElementById('player2-name').innerHTML = player2.name;
+            document.getElementById('player2-hp').innerHTML = player2.hp;
+        }
+
+        function attack(p1, p2) {
+            p1.attack(p2);
+            displayAll();
+        }
+
+        function autoAttack() {
+            if (turn == 1) {
+                attack(player1, player2);
+                turn = 2;
+            } else {
+                attack(player2, player1);
+                turn = 1;
+            }
+            if (player1.hp <= 0 || player2.hp <= 0) {
+                clearInterval(run);
+            }
+        }
+    </script>
+</body>
+
+</html>
